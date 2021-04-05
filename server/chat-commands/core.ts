@@ -1284,10 +1284,7 @@ export const commands: ChatCommands = {
 		}
 	},
 
-	acceptbattle(target, room, user, connection) {
-		const ready = await this.prepBattle(connection, 'challenge');
-		if (!ready) return false;
-
+	acceptbattle(target, room, user) {
 		const [roomid, senderID] = target.split(',').map(part => part.trim());
 		const targetRoom = Rooms.get(roomid);
 		if (!targetRoom) return this.errorReply(`Room ${roomid} not found`);
