@@ -1267,7 +1267,7 @@ export const commands: ChatCommands = {
 			}
 			player.invite = targetUser.id;
 			const playerNames = battle.players.map(p => p.id && p.name).filter(Boolean).join(', ');
-			targetUser.send(`|pm|${user.getIdentity()}|${targetUser.getIdentity()}|/uhtml battleinvite,You've been invited to join a ${battle.format} battle (with ${playerNames})<br /><button name="send" value="/acceptbattle ${room.roomid}, ${user.id}" class="button"><strong>Accept</strong></button> <button name="send" value="/rejectbattle ${room.roomid}, ${user.id}" class="button">Reject</button>`);
+			targetUser.send(`|pm|${user.getIdentity()}|${targetUser.getIdentity()}|/challenge ${battle.format},${user.id}`);
 			user.send(`|pm|${user.getIdentity()}|${targetUser.getIdentity()}|/text Invite sent for <<${room.roomid}>>`);
 			battle.sendInviteForm(connection);
 			return this.add(`||Invite sent to ${targetUser.name}!`);
